@@ -11,9 +11,13 @@ class tableView(ListView):
 
 
 class adduserView(TemplateView):
-    def get(self, request, **kwargs):
-        return render(request, 'user.html')
+    template_name = 'user.html'
+
+    def get_queryset(self):
+        return userdb.objects.all()
 
 class dashboardView(TemplateView):
-    def get(self, request, **kwargs):
-        return render(request, 'dashboard.html')
+    template_name = 'dashboard.html'
+
+    def get_queryset(self):
+        return userdb.objects.all()
