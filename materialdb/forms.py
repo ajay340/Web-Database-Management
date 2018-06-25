@@ -6,4 +6,3 @@ class AddUser(forms.Form):
     salary = forms.CharField()
     country = forms.CharField()
     city = forms.CharField()
-    id_num = forms.CharField()

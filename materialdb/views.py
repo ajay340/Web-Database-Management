@@ -2,10 +2,11 @@ from django.shortcuts import render
 from django.views.generic import TemplateView, ListView
 from .models import userdb
 from materialdb.forms import AddUser
+import pymysql
 
 # Create your views here.
 
-class dashboardView(TemplateView):
+class dashboardView(ListView):
     template_name = 'dashboard.html'
 
     def get_queryset(self):
@@ -45,7 +46,16 @@ class adduserView(TemplateView):
             city = form.cleaned_data['city']
             context.update({'city': city})
 
-            id_num = form.cleaned_data['id_num']
-            context.update({'id_num': id_num})
+            conn = pymysql.connect(host="192.168.1.12", port=3306, user="root", password="admin123", db="userdb")
 
+            mysql = conn.cursor()
+
+            sql_lookup = "select * from userdb.materialdb_userdb;"
+
+            sql_add = ("insert into userdb.materialdb_userdb (name,country,city,salary ) values ('%s', '%s', '%s', '%s');" % (first_name, country, city, salary))
+            sql_commit = "SET autocommit = 1;"
+
+            mysql.execute(sql_add)
+            mysql.execute(sql_commit)
+            
         return render(request, self.template_name, context)
