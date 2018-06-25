@@ -156,10 +156,11 @@
                       {% for entry in object_list %}
                         <tr>
                           <td>{{ entry.id }}</td>
-                          <td>{{ entry.name }}</td>
+                          <td>{{ entry.first_name }} {{ entry.last_name }}</td>
                           <td>{{ entry.country }} </td>
                           <td>{{ entry.city }} </td>
-                          <td class="text-right">{{ entry.salary }} </td>
+                          <td class="text-right">${{ entry.salary }} </td>
+                          
                         </tr>
                       {% endfor %}
                     </tbody>

@@ -52,10 +52,11 @@ class adduserView(TemplateView):
 
             sql_lookup = "select * from userdb.materialdb_userdb;"
 
-            sql_add = ("insert into userdb.materialdb_userdb (name,country,city,salary ) values ('%s', '%s', '%s', '%s');" % (first_name, country, city, salary))
+
+            sql_add = ("insert into userdb.materialdb_userdb (first_name,last_name, country,city,salary ) values ('%s','%s', '%s', '%s', '%s');" % (first_name, last_name, country, city, salary))
             sql_commit = "SET autocommit = 1;"
 
             mysql.execute(sql_add)
             mysql.execute(sql_commit)
-            
+
         return render(request, self.template_name, context)

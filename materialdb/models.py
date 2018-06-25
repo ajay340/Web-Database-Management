@@ -1,7 +1,8 @@
 from django.db import models
 
 class userdb(models.Model):
-    name = models.CharField(max_length=30)
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
     country = models.CharField(max_length=30)
     city = models.CharField(max_length=40)
     salary = models.CharField(max_length=10)
