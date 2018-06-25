@@ -11,7 +11,7 @@ class tableView(ListView):
 
 
 class adduserView(TemplateView):
-    template_name = 'user.html'
+    template_name = 'adduser.html'
 
     def get_queryset(self):
         return userdb.objects.all()
