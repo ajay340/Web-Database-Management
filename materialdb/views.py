@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView
+from django.shortcuts import redirect
 from .models import userdb
 from materialdb.forms import AddUser
 import pymysql
@@ -33,7 +34,7 @@ class tableView(ListView):
             mysql.execute(sql_delete)
             mysql.execute(sql_commit)
 
-        return render(request, self.template_name, context)
+        return redirect('/table')
 
 class adduserView(TemplateView):
     template_name = 'adduser.html'
