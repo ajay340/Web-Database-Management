@@ -18,6 +18,22 @@ class tableView(ListView):
     def get_queryset(self):
         return userdb.objects.all()
 
+    def post(self, request):
+        form = AddUser(request.POST or None)
+
+        context = { 'form': form }
+        if 'deleteEntry' in request.POST:
+            id_num = request.POST['deleteEntry']
+
+            conn = pymysql.connect(host="192.168.1.12", port=3306, user="root", password="admin123", db="userdb")
+            mysql = conn.cursor()
+
+            sql_delete = ("delete from userdb.materialdb_userdb where id ='%s';" % (id_num))
+            sql_commit = "SET autocommit = 1;"
+            mysql.execute(sql_delete)
+            mysql.execute(sql_commit)
+
+        return render(request, self.template_name, context)
 
 class adduserView(TemplateView):
     template_name = 'adduser.html'
@@ -51,7 +67,6 @@ class adduserView(TemplateView):
             mysql = conn.cursor()
 
             sql_lookup = "select * from userdb.materialdb_userdb;"
-
 
             sql_add = ("insert into userdb.materialdb_userdb (first_name,last_name, country,city,salary ) values ('%s','%s', '%s', '%s', '%s');" % (first_name, last_name, country, city, salary))
             sql_commit = "SET autocommit = 1;"

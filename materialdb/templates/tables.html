@@ -160,7 +160,14 @@
                           <td>{{ entry.country }} </td>
                           <td>{{ entry.city }} </td>
                           <td class="text-right">${{ entry.salary }} </td>
-                          
+                          <td><form method="post">
+
+                          {% csrf_token %}
+                          <center>
+                          <button type="submit" name="deleteEntry" value="{{ entry.id }}" rel="tooltip" class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral " data-original-title="Remove">
+                            <i class="now-ui-icons ui-1_simple-remove"></i>
+                          </button></center></form>
+                        </td>
                         </tr>
                       {% endfor %}
                     </tbody>
