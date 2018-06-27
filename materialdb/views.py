@@ -36,7 +36,7 @@ class tableView(ListView):
             mysql.execute(sql_delete)
             mysql.execute(sql_commit)
 
-            return redirect('/table')
+            return redirect('/')
 
         elif 'editEntry' in request.POST:
 
@@ -126,4 +126,4 @@ class edituserView(TemplateView):
             mysql.execute(sql_update)
             mysql.execute(sql_commit)
 
-            return redirect('/table')
+            return redirect('/')
