@@ -1,11 +1,11 @@
 # Web Database Management
-This is a Web User Interface for looking, adding, deleting, and editing data on your mySQL database created with Django.
+This is a Web User Interface for viewing, adding, deleting, and editing data on your mySQL database created with Django.
 
 ## How to install
-You will need to have Python 3.X  mySQL 5.7.X installed. 
+You will need to have Python 3.X and mySQL 5.7.X installed. 
 mySQL verison 5.8+ is not compatible with some of the libraries.
 
-Next install the required libraries
+Next install the required libraries.
 ```
 pip3 install -r requirements.txt
 ```
@@ -18,5 +18,38 @@ python3 manage.py runserver 0.0.0.0:8000
 Then enter your web browser and go to [http://localhost:8000](http://127.0.0.1:8000)
 
 ## Configuration
-Your mySQL server must allow your IP to have access to connect, read, and write.
+You must create a schema in your mySQL server and it must allow your IP to have access to connect, read, and write.
 
+First go to databasereach/settings.py and change the server specifications to your mySQL server setup.
+```python
+DATABASES = {
+'default': {
+    'ENGINE': 'django.db.backends.mysql',
+    'NAME': '<schema>',
+    'HOST': '',
+    'PORT': '',
+    'USER': '',
+    'PASSWORD': '',
+}}
+```
+Next go to materialdb/views.py and change the mySQL server specification.
+```python
+conn = pymysql.connect(host="", port=, user="", password="", db="<schema>")
+```
+Now in materialdb/models.py, change the model class with the name of your schema. Also you can change the names, add, or delete the columns. 
+### If you do decide to alter the columns, you will need to change specifications in materialdb/adduser.html, materialdb/tables.html, materialdb/edituser.html, materialdb/views.py, and materialdb/forms.py
+```python
+class <schema>(models.Model):
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    country = models.CharField(max_length=30)
+    city = models.CharField(max_length=40)
+    salary = models.CharField(max_length=10)
+```
+Then migrate the columns to your schema using these commands.
+```
+python3 manage.py makemigrations
+python3 manage.py migrate
+```
+
+And finally just run the server.
