@@ -56,7 +56,7 @@ python3 manage.py migrate
 
 And finally just run the server.
 
-##Screenshots
+## Screenshots
 Adding entries to the database
 <p align="center"><img src="https://gitlab.com/ajayshah/Web-Database-Management/raw/master/screenshots/screenshot2.png"></p>
 Editing entries in database
