@@ -1,4 +1,6 @@
 # Web Database Management
+<p align="center"><img src="https://gitlab.com/ajayshah/Web-Database-Management/raw/master/screenshots/screenshot1.png" /></p>
+
 This is a Web User Interface for viewing, adding, deleting, and editing data on your mySQL database created with Django.
 
 ## How to install
@@ -53,3 +55,9 @@ python3 manage.py migrate
 ```
 
 And finally just run the server.
+
+##Screenshots
+Adding entries to the database
+<p align="center"><img src="https://gitlab.com/ajayshah/Web-Database-Management/raw/master/screenshots/screenshot2.png"></p>
+Editing entries in database
+<p alight="center"><img src="https://gitlab.com/ajayshah/Web-Database-Management/raw/master/screenshots/screenshot3.png"></p>
