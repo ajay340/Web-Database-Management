@@ -5,7 +5,7 @@ from .models import userdb
 from materialdb.forms import AddUser
 import pymysql
 
-conn = pymysql.connect(host="192.168.1.12", port=3306, user="root", password="admin123", db="userdb")
+conn = pymysql.connect(host="", port=, user="", password="", db="userdb")
 mysql = conn.cursor()
 
 # Create your views here.
