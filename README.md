@@ -5,10 +5,10 @@ This is a Web User Interface for viewing, adding, deleting, and editing data on 
 
 ## Documentation
 
-* [Install](https://gitlab.com/ajayshah/Web-Database-Management/edit/master/README.md#how-to-install)
-* [Running](https://gitlab.com/ajayshah/Web-Database-Management/edit/master/README.md#running)
-* [Configuration](https://gitlab.com/ajayshah/Web-Database-Management/edit/master/README.md#configuration)
-* [Screenshots](https://gitlab.com/ajayshah/Web-Database-Management/edit/master/README.md#screenshots)
+* [Install](https://gitlab.com/ajayshah/Web-Database-Management/tree/master#how-to-install)
+* [Running](https://gitlab.com/ajayshah/Web-Database-Management/tree/master#running)
+* [Configuration](https://gitlab.com/ajayshah/Web-Database-Management/tree/master#configuration)
+* [Screenshots](https://gitlab.com/ajayshah/Web-Database-Management/tree/master#screenshots)
 
 ## How to install
 You will need to have Python 3.X and mySQL 5.7.X installed. 
