@@ -1,4 +1,4 @@
-<center> # Web Database Management </center>
+# Web Database Management 
 <p align="center">
     <img src="https://img.shields.io/badge/License-MIT-blue.svg" />
     <img src="https://img.shields.io/badge/Made%20with-Python-yellow.svg" />
