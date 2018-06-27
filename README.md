@@ -1,5 +1,11 @@
 # Web Database Management
-<p align="center"><img src="/screenshots/screenshot1.png" /></p>
+<p align="center">
+    <img src="https://img.shields.io/badge/License-MIT-blue.svg" />
+    <img src="https://img.shields.io/badge/Made%20with-Python-yellow.svg" />
+    <img src=https://img.shields.io/badge/Made%20with-Django-green.svg />
+    <img src=https://img.shields.io/badge/Database-mySQL-blue.svg />
+    <img src="/screenshots/screenshot1.png" />
+</p>
 
 This is a Web User Interface for viewing, adding, deleting, and editing data on your mySQL database created with Django.
 
