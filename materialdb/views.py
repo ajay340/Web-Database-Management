@@ -5,6 +5,9 @@ from .models import userdb
 from materialdb.forms import AddUser
 import pymysql
 
+conn = pymysql.connect(host="192.168.1.12", port=3306, user="root", password="admin123", db="userdb")
+mysql = conn.cursor()
+
 # Create your views here.
 
 class dashboardView(ListView):
@@ -26,8 +29,7 @@ class tableView(ListView):
         if 'deleteEntry' in request.POST:
             id_num = request.POST['deleteEntry']
 
-            conn = pymysql.connect(host="192.168.1.12", port=3306, user="root", password="admin123", db="userdb")
-            mysql = conn.cursor()
+
 
             sql_delete = ("delete from userdb.materialdb_userdb where id ='%s';" % (id_num))
             sql_commit = "SET autocommit = 1;"
@@ -76,8 +78,7 @@ class adduserView(TemplateView):
             city = form.cleaned_data['city']
             context.update({'city': city})
 
-            conn = pymysql.connect(host="192.168.1.12", port=3306, user="root", password="admin123", db="userdb")
-            mysql = conn.cursor()
+
 
             sql_lookup = "select * from userdb.materialdb_userdb;"
 
@@ -119,8 +120,7 @@ class edituserView(TemplateView):
             city = form.cleaned_data['city']
             context.update({'city': city})
 
-            conn = pymysql.connect(host="192.168.1.12", port=3306, user="root", password="admin123", db="userdb")
-            mysql = conn.cursor()
+
             sql_update = ("update userdb.materialdb_userdb set first_name = '%s', last_name = '%s', country = '%s', city = '%s', salary = '%s' where id = '%s';" % (first_name, last_name, country, city, salary, id_num))
             sql_commit = "SET autocommit = 1;"
             mysql.execute(sql_update)
