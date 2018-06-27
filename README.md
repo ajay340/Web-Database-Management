@@ -3,6 +3,13 @@
 
 This is a Web User Interface for viewing, adding, deleting, and editing data on your mySQL database created with Django.
 
+## Documentation
+
+* [Install](https://gitlab.com/ajayshah/Web-Database-Management/edit/master/README.md#how-to-install)
+* [Running](https://gitlab.com/ajayshah/Web-Database-Management/edit/master/README.md#running)
+* [Configuration](https://gitlab.com/ajayshah/Web-Database-Management/edit/master/README.md#configuration)
+* [Screenshots](https://gitlab.com/ajayshah/Web-Database-Management/edit/master/README.md#screenshots)
+
 ## How to install
 You will need to have Python 3.X and mySQL 5.7.X installed. 
 mySQL verison 5.8+ is not compatible with some of the libraries.
