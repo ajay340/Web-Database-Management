@@ -7,7 +7,7 @@
     <img src="/screenshots/screenshot1.png" />
 </p>
 
-This is a Web User Interface for viewing, adding, deleting, and editing data on your mySQL database created with Django.
+This is a web application for viewing, adding, deleting, and editing data on your mySQL database created with Django.
 
 ## Documentation
 
