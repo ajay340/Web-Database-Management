@@ -1,6 +1,5 @@
 # Web Database Management 
 <p align="center">
-    
     <img src="https://img.shields.io/badge/License-MIT-blue.svg" />
     <img src="https://img.shields.io/badge/Made%20with-Python-yellow.svg" />
     <img src=https://img.shields.io/badge/Made%20with-Django-green.svg />
