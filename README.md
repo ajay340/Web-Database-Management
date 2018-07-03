@@ -4,7 +4,6 @@
     <img src="https://img.shields.io/badge/Made%20with-Python-yellow.svg" />
     <img src=https://img.shields.io/badge/Made%20with-Django-green.svg />
     <img src=https://img.shields.io/badge/Database-mySQL-blue.svg />
-    <a href="https://snyk.io/test/github/ajay340/Web-Database-Management?targetFile=requirements.txt"><img src="https://snyk.io/test/github/ajay340/Web-Database-Management/badge.svg?targetFile=requirements.txt" alt="Known Vulnerabilities" data-canonical-src="https://snyk.io/test/github/ajay340/Web-Database-Management?targetFile=requirements.txt" style="max-width:100%;"></a>
     <img src="/screenshots/screenshot1.png" />
 </p>
 
