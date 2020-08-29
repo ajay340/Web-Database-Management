@@ -1,0 +1,4 @@
+*.pyc
+migrations/
+.vscode/
+.devcontainer/

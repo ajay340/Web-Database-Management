@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
@@ -20,7 +21,7 @@ PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 
+SECRET_KEY = os.environ["SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'materialdb.apps.MaterialdbConfig'
+    'materialdb.apps.MaterialdbConfig',
 ]
 
 MIDDLEWARE = [
@@ -78,11 +79,11 @@ WSGI_APPLICATION = 'databasereach.wsgi.application'
 DATABASES = {
 'default': {
     'ENGINE': 'django.db.backends.mysql',
-    'NAME': 'userdb',
-    'HOST': '',
-    'PORT': '',
-    'USER': '',
-    'PASSWORD': '',
+    'NAME': os.environ["MYSQL_DATABASE"],
+    'HOST': os.environ["MYSQL_HOST"],
+    'PORT': os.environ["MYSQL_PORT"],
+    'USER': os.environ["MYSQL_USER"],
+    'PASSWORD': os.environ["MYSQL_PASSWORD"],
 }}
 
 
