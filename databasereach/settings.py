@@ -21,7 +21,7 @@ PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "a"
+SECRET_KEY = os.environ["SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -79,11 +79,11 @@ WSGI_APPLICATION = 'databasereach.wsgi.application'
 DATABASES = {
 'default': {
     'ENGINE': 'django.db.backends.mysql',
-    'NAME': 'userdb',
-    'HOST': 'localhost',
-    'PORT': '3306',
-    'USER': 'root',
-    'PASSWORD': '',
+    'NAME': os.environ["MYSQL_DATABASE"],
+    'HOST': os.environ["MYSQL_HOST"],
+    'PORT': os.environ["MYSQL_PORT"],
+    'USER': os.environ["MYSQL_USER"],
+    'PASSWORD': os.environ["MYSQL_PASSWORD"],
 }}
 
 
