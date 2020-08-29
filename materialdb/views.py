@@ -1,40 +1,29 @@
-from django.shortcuts import render, render_to_response, redirect
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, ListView
 from django.template import RequestContext
-from .models import userdb
-from materialdb.forms import AddUser
-import pymysql
+from .models import Person
+from materialdb.forms import AddPerson
 
-conn = pymysql.connect(host="", port=, user="", password="", db="userdb")
-mysql = conn.cursor()
-
-# Create your views here.
 
 class dashboardView(ListView):
     template_name = 'dashboard.html'
 
     def get_queryset(self):
-        return userdb.objects.all()
+        return Person.objects.all()
 
 class tableView(ListView):
     template_name = 'tables.html'
 
     def get_queryset(self):
-        return userdb.objects.all()
+        return Person.objects.all()
 
     def post(self, request):
-        form = AddUser(request.POST or None)
+        form = AddPerson(request.POST or None)
 
         context = { 'form': form }
         if 'deleteEntry' in request.POST:
             id_num = request.POST['deleteEntry']
-
-
-
-            sql_delete = ("delete from userdb.materialdb_userdb where id ='%s';" % (id_num))
-            sql_commit = "SET autocommit = 1;"
-            mysql.execute(sql_delete)
-            mysql.execute(sql_commit)
+            Person.objects.filter(id=id_num).delete()
 
             return redirect('/')
 
@@ -51,15 +40,15 @@ class tableView(ListView):
 
             return redirect('/edit')
 
-class adduserView(TemplateView):
-    template_name = 'adduser.html'
+class addpersonView(TemplateView):
+    template_name = 'addperson.html'
 
     def get(self, request):
-        form = AddUser()
+        form = AddPerson()
         return render(request, self.template_name, {'form':form})
 
     def post(self, request):
-        form = AddUser(request.POST or None)
+        form = AddPerson(request.POST or None)
 
         context = { 'form': form }
         if form.is_valid():
@@ -79,26 +68,20 @@ class adduserView(TemplateView):
             context.update({'city': city})
 
 
-
-            sql_lookup = "select * from userdb.materialdb_userdb;"
-
-            sql_add = ("insert into userdb.materialdb_userdb (first_name,last_name, country,city,salary ) values ('%s','%s', '%s', '%s', '%s');" % (first_name, last_name, country, city, salary))
-            sql_commit = "SET autocommit = 1;"
-
-            mysql.execute(sql_add)
-            mysql.execute(sql_commit)
+            Person.objects.create_user(first_name, last_name, country, city, salary)
+            return redirect('/')
 
         return render(request, self.template_name, context)
 
-class edituserView(TemplateView):
-    template_name = 'edituser.html'
+class editpersonView(TemplateView):
+    template_name = 'editperson.html'
 
     def get(self, request):
-        form = AddUser()
+        form = AddPerson()
         return render(request, self.template_name, {'form':form})
 
     def post(self, request):
-        form = AddUser(request.POST or None)
+        form = AddPerson(request.POST or None)
         context = { 'form': form }
         if form.is_valid():
 
@@ -120,10 +103,7 @@ class edituserView(TemplateView):
             city = form.cleaned_data['city']
             context.update({'city': city})
 
-
-            sql_update = ("update userdb.materialdb_userdb set first_name = '%s', last_name = '%s', country = '%s', city = '%s', salary = '%s' where id = '%s';" % (first_name, last_name, country, city, salary, id_num))
-            sql_commit = "SET autocommit = 1;"
-            mysql.execute(sql_update)
-            mysql.execute(sql_commit)
+            person = Person.objects.filter(id=id_num).update(first_name=first_name, last_name=last_name, salary=salary, country=country,city=city)
 
             return redirect('/')
+        return render(request, self.template_name, context)
